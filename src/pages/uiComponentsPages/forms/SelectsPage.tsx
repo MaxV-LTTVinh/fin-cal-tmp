@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
+import { BaseTag } from '@app/components/common/BaseTag/BaseTag';
+import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
+import { BaseSelect, Option } from '@app/components/common/selects/BaseSelect/BaseSelect';
+import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BaseSelect, Option } from '@app/components/common/selects/BaseSelect/BaseSelect';
-import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
-import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
-import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
-import { BaseTag } from '@app/components/common/BaseTag/BaseTag';
-import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
-import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 
 type Size = 'small' | 'middle' | 'large';
 
@@ -100,7 +100,7 @@ const SelectsPage: React.FC = () => {
               <BaseRadio.Button value="middle">{t('selects.middle')}</BaseRadio.Button>
               <BaseRadio.Button value="large">{t('selects.large')}</BaseRadio.Button>
             </BaseRadio.Group>
-            <BaseSelect size={size} defaultValue="a1" width={200}>
+            <BaseSelect showSearch size={size} defaultValue="a1" width={200}>
               {children}
             </BaseSelect>
             <BaseSelect
