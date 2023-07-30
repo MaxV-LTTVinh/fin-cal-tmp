@@ -1,21 +1,22 @@
+import ForgotPasswordPage from '@app/pages/ForgotPasswordPage';
+import LockPage from '@app/pages/LockPage';
+import LoginPage from '@app/pages/LoginPage';
+import NewPasswordPage from '@app/pages/NewPasswordPage';
+import SecurityCodePage from '@app/pages/SecurityCodePage';
+import SignUpPage from '@app/pages/SignUpPage';
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // no lazy loading for auth pages to avoid flickering
 const AuthLayout = React.lazy(() => import('@app/components/layouts/AuthLayout/AuthLayout'));
-import LoginPage from '@app/pages/LoginPage';
-import SignUpPage from '@app/pages/SignUpPage';
-import ForgotPasswordPage from '@app/pages/ForgotPasswordPage';
-import SecurityCodePage from '@app/pages/SecurityCodePage';
-import NewPasswordPage from '@app/pages/NewPasswordPage';
-import LockPage from '@app/pages/LockPage';
 
 import MainLayout from '@app/components/layouts/main/MainLayout/MainLayout';
 import ProfileLayout from '@app/components/profile/ProfileLayout';
 import RequireAuth from '@app/components/router/RequireAuth';
 import { withLoading } from '@app/hocs/withLoading.hoc';
-import NftDashboardPage from '@app/pages/DashboardPages/NftDashboardPage';
+import { ComponentTest1 } from '@app/pages/ComponentTest1/ComponentTest1';
 import MedicalDashboardPage from '@app/pages/DashboardPages/MedicalDashboardPage';
+import NftDashboardPage from '@app/pages/DashboardPages/NftDashboardPage';
 
 const NewsFeedPage = React.lazy(() => import('@app/pages/NewsFeedPage'));
 const DataTablesPage = React.lazy(() => import('@app/pages/DataTablesPage'));
@@ -35,7 +36,7 @@ const CollapsePage = React.lazy(() => import('@app/pages/uiComponentsPages/dataD
 const PaginationPage = React.lazy(() => import('@app/pages/uiComponentsPages/dataDisplay/PaginationPage'));
 const ModalsPage = React.lazy(() => import('@app/pages/uiComponentsPages/modals/ModalsPage'));
 const PopoversPage = React.lazy(() => import('@app/pages/uiComponentsPages/modals/PopoversPage'));
-const PopconfirmsPage = React.lazy(() => import('@app/pages/uiComponentsPages/modals/PopconfirmsPage'));
+const PopConfirmsPage = React.lazy(() => import('@app/pages/uiComponentsPages/modals/PopConfirmsPage'));
 const ProgressPage = React.lazy(() => import('@app/pages/uiComponentsPages/feedback/ProgressPage'));
 const ResultsPage = React.lazy(() => import('@app/pages/uiComponentsPages/feedback/ResultsPage'));
 const AlertsPage = React.lazy(() => import('@app/pages/uiComponentsPages/feedback/AlertsPage'));
@@ -64,6 +65,7 @@ export const NFT_DASHBOARD_PATH = '/';
 export const MEDICAL_DASHBOARD_PATH = '/medical-dashboard';
 
 const MedicalDashboard = withLoading(MedicalDashboardPage);
+const ComponentTest = withLoading(ComponentTest1);
 const NftDashboard = withLoading(NftDashboardPage);
 const NewsFeed = withLoading(NewsFeedPage);
 const AdvancedForm = withLoading(AdvancedFormsPage);
@@ -90,7 +92,7 @@ const Collapse = withLoading(CollapsePage);
 const Pagination = withLoading(PaginationPage);
 const Modals = withLoading(ModalsPage);
 const Popovers = withLoading(PopoversPage);
-const Popconfirms = withLoading(PopconfirmsPage);
+const Popconfirms = withLoading(PopConfirmsPage);
 const Progress = withLoading(ProgressPage);
 const Results = withLoading(ResultsPage);
 const Alerts = withLoading(AlertsPage);
@@ -131,6 +133,7 @@ export const AppRouter: React.FC = () => {
         <Route path={NFT_DASHBOARD_PATH} element={protectedLayout}>
           <Route index element={<NftDashboard />} />
           <Route path={MEDICAL_DASHBOARD_PATH} element={<MedicalDashboard />} />
+          <Route path="test" element={<ComponentTest test={1} />} />
           <Route path="apps">
             <Route path="feed" element={<NewsFeed />} />
           </Route>

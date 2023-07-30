@@ -1,5 +1,5 @@
-import React from 'react';
 import {
+  BlockOutlined,
   CompassOutlined,
   DashboardOutlined,
   FormOutlined,
@@ -8,9 +8,9 @@ import {
   LineChartOutlined,
   TableOutlined,
   UserOutlined,
-  BlockOutlined,
 } from '@ant-design/icons';
 import { ReactComponent as NftIcon } from '@app/assets/icons/nft-icon.svg';
+import React from 'react';
 
 export interface SidebarNavigationItem {
   title: string;
@@ -32,6 +32,12 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     title: 'common.medical-dashboard',
     key: 'medical-dashboard',
     url: '/medical-dashboard',
+    icon: <DashboardOutlined />,
+  },
+  {
+    title: 'Test',
+    key: 'test',
+    url: '/test',
     icon: <DashboardOutlined />,
   },
   {

@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import { useTranslation } from 'react-i18next';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
-import { BasePopconfirm } from '@app/components/common/BasePopconfirm/BasePopconfirm';
-import { TopButtons, LeftButtons, RightButtons, BottomButtons } from '@app/pages/uiComponentsPages/modals/PopoversPage';
-import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
-import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
-import { FONT_SIZE, media } from '@app/styles/themes/constants';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BasePopconfirm } from '@app/components/common/BasePopconfirm/BasePopconfirm';
+import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import { notificationController } from '@app/controllers/notificationController';
+import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BottomButtons, LeftButtons, RightButtons, TopButtons } from '@app/pages/uiComponentsPages/modals/PopoversPage';
+import { FONT_SIZE, media } from '@app/styles/themes/constants';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 
 const AsyncButton = styled(BaseButton)`
   @media only screen and ${media.xs} {
@@ -19,7 +19,7 @@ const AsyncButton = styled(BaseButton)`
   }
 `;
 
-const PopconfirmsPage: React.FC = () => {
+const PopConfirmsPage: React.FC = () => {
   const { t } = useTranslation();
   const [open, setOpen] = useState<boolean>(false);
   const [confirmLoading, setConfirmLoading] = useState<boolean>(false);
@@ -185,4 +185,4 @@ const PopconfirmsPage: React.FC = () => {
   );
 };
 
-export default PopconfirmsPage;
+export default PopConfirmsPage;
